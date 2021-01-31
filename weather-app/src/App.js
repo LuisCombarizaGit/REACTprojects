@@ -42,16 +42,21 @@ function App() {
   return (
     <div className="app">
       <main>
-        <div className="search-box">
+        <header className="search-box">
           <input
             type="text"
             className="search-bar"
             placeholder="Seach for a city"
           />
-        </div>
+        </header>
         <div className="location-box">
-          <div className="location">Calgary, CANADA</div>
+          <div className="location">Calgary, Canada</div>
           <div className="date">{dateBuilder(new Date())}</div>
+        </div>
+
+        <div className="weather-box">
+          <div className="temp">15°</div>
+          <div className="weather">Sunny</div>
         </div>
       </main>
     </div>
