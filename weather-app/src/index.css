@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "montseratt", sans-serif;
+}
+
+.app {
+  background-image: url("./Pictures/Sunny.jpg");
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease-out;
+}
+
+.app.warm {
+  background-image: url("./Pictures/Rainy.jpg");
+}
+
+main {
+  min-height: 100vh;
+  background-image: Linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.1)
+  );
+}
