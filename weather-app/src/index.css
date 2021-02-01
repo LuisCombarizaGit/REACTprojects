@@ -12,11 +12,21 @@ body {
   background-image: url("./Pictures/Sunny.jpg");
   background-size: cover;
   background-position: bottom;
-  transition: 0.4 ease-out;
+  transition: 0.1 ease-out;
 }
 
-.app.warm {
-  background-image: url("./Pictures/Rainy.jpg");
+.app.cold {
+  background-image: url("./Pictures/Cold.jpg");
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.1 ease-out;
+}
+
+.app.mild {
+  background-image: url("./Pictures/Mild.jpg");
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.1 ease-out;
 }
 
 main {
@@ -41,13 +51,14 @@ header input {
   text-align: center;
   max-width: 280px;
   padding: 10px 15px;
+  margin-bottom: 20px;
   border: none;
   outline: none;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 16px 16px 16px 16px;
   border-bottom: 3px solid black;
 
-  color: #03d9ff;
+  color: #000000;
   font-size: 20px;
   font-weight: 300;
   transition: 0.6s ease-out;
@@ -66,9 +77,9 @@ header input:focus {
 }
 
 .location-box .date {
-  color: #fff;
-  font-size: 32px;
-  font-weight: 500;
+  color: rgb(1, 2, 11);
+  font-size: 20px;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -76,11 +87,18 @@ header input:focus {
   text-align: center;
 }
 
+.weather {
+  padding-top: 10px;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 500;
+}
+
 .weather-box .temp {
   position: relative;
   display: inline-block;
   margin: 30px auto;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(6, 0, 0, 0.311);
   border-radius: 16px;
 
   padding: 15px 25px;
