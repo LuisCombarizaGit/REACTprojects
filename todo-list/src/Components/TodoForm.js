@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+/* Function component that will represent the todo form*/
 function TodoForm(props) {
   const [input, setInput] = useState("");
 
