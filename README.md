@@ -1,2 +1,2 @@
 # REACTprojects
-Repository that contains work primarily done in React.js
+Repository that contains projects done with React.js as front end librery
