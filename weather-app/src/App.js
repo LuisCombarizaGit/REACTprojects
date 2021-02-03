@@ -69,7 +69,7 @@ function App() {
         typeof weather.main != "undefined"
           ? weather.main.temp < 10
             ? "app cold"
-            : "app mild "
+            : "app mild"
           : "app"
       }
     >
