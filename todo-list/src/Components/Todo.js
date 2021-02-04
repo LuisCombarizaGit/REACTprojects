@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import TodoForm from "./TodoForm";
 import { RiCloseCircleLine } from "react-icons/ri";
 import { TiEdit } from "react-icons/ti";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
 
-function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
+const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -42,6 +41,6 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
       </div>
     </div>
   ));
-}
+};
 
 export default Todo;
