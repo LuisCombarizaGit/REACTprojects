@@ -4,6 +4,11 @@ import styles from "./Cards.module.css";
 import Countup from "react-countup";
 import cx from "classnames";
 
+/*--
+  Card component: Three different cards that show the data for confirmed
+  cases, recovered and deaths. Data is de-estructured from API and passed 
+  in a prop argument.
+---*/
 function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
   if (!confirmed) {
     return "Loading...";
@@ -11,6 +16,7 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
   return (
     <div className={styles.container}>
       <Grid container spacing={3} justify="center">
+        {/* ========== INFECTED CARD  =========== */}
         <Grid
           item
           component={Card}
@@ -38,6 +44,8 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
             </Typography>
           </CardContent>
         </Grid>
+        {/* ========== INFECTED CARD   =========== */}
+        {/* ========== RECOVERED CARD  =========== */}
         <Grid
           item
           component={Card}
@@ -67,6 +75,8 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
             </Typography>
           </CardContent>
         </Grid>
+        {/* ========== RECOVERED CARD  =========== */}
+        {/* ==========   DEATHS CARD  =========== */}
         <Grid
           item
           component={Card}
@@ -96,6 +106,7 @@ function Cards({ data: { confirmed, recovered, deaths, lastUpdate } }) {
             </Typography>
           </CardContent>
         </Grid>
+        {/* ==========   DEATHS CARD  =========== */}
       </Grid>
     </div>
   );
