@@ -1,6 +1,9 @@
+/*------------ Margin Reset -------------*/
+
 * {
   margin: 0;
 }
+/*------------ Margin Reset -------------*/
 
 body {
   background-color: #f5f6f5;
@@ -9,6 +12,10 @@ body {
 .app {
   display: flex;
   justify-content: space-evenly;
+}
+
+.app_left {
+  flex: 0.9;
 }
 
 .app_header {
@@ -23,6 +30,7 @@ body {
   justify-content: space-between;
 }
 
+/*------------ Responsive  -------------*/
 @media (max-width: 900px) {
   .app {
     flex-direction: column;

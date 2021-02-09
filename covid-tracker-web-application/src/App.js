@@ -11,9 +11,11 @@ import InfoBox from "./InfoBox";
 import Map from "./Map";
 
 function App() {
+  // Functional state components
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
 
+  // fetching API Data:
   useEffect(() => {
     const getCountriesData = async () => {
       await fetch("https://disease.sh/v3/covid-19/countries")
@@ -30,12 +32,25 @@ function App() {
     getCountriesData();
   });
 
+  // Fetching data specific to a given country:
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
-
-    console.log(">>>>>>", countryCode);
-
     setCountry(countryCode);
+
+     const url =
+      countryCode === "worldwide"
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+    await fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setInputCountry(countryCode);
+        setCountryInfo(data);
+        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        setMapZoom(4);
+      });
+  };
+
   };
 
   return (
