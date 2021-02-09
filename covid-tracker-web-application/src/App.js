@@ -14,6 +14,16 @@ function App() {
   // Functional state components
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
+  const [countryInfo, setCountryInfo] = useState({});
+
+  // fetching API Data:
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => {
+        setCountryInfo(data);
+      });
+  }, []);
 
   // fetching API Data:
   useEffect(() => {
@@ -37,20 +47,20 @@ function App() {
     const countryCode = event.target.value;
     setCountry(countryCode);
 
-     const url =
+    const url =
       countryCode === "worldwide"
         ? "https://disease.sh/v3/covid-19/all"
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
     await fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setInputCountry(countryCode);
+        setCountry(countryCode);
+        // setCountryInfo(data);
+        // setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+        // setMapZoom(4);
         setCountryInfo(data);
-        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-        setMapZoom(4);
       });
-  };
-
   };
 
   return (
@@ -71,11 +81,22 @@ function App() {
             </Select>
           </FormControl>
         </div>
-
         <div className="app_stats">
-          <InfoBox title="Coronovirus Cases" cases={1234} total={3000} />
-          <InfoBox title="Recovered" cases={1234} total={123123} />
-          <InfoBox title="Deaths" cases={1234} total={123123} />
+          <InfoBox
+            title="Coronovirus Cases"
+            cases={countryInfo.todayCases}
+            total={countryInfo.cases}
+          />
+          <InfoBox
+            title="Recovered"
+            cases={countryInfo.todayRecovered}
+            total={countryInfo.recovered}
+          />
+          <InfoBox
+            title="Deaths"
+            cases={countryInfo.todayDeaths}
+            total={countryInfo.deaths}
+          />
         </div>
         <Map />
       </div>
@@ -89,5 +110,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
