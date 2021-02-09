@@ -9,12 +9,14 @@ import {
 } from "@material-ui/core";
 import InfoBox from "./InfoBox";
 import Map from "./Map";
+import Table from "./Table";
 
 function App() {
   // Functional state components
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   // fetching API Data:
   useEffect(() => {
@@ -36,6 +38,7 @@ function App() {
             value: country.countryInfo.iso2,
           }));
 
+          setTableData(data);
           setCountries(countries);
         });
     };
@@ -104,6 +107,7 @@ function App() {
       <Card className="app_right">
         <CardContent>
           <h3>Live Cases by Country</h3>
+          <Table countries={tableData} />
           <h3> Worldwid new cases</h3>
         </CardContent>
       </Card>
