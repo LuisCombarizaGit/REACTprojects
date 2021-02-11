@@ -4,6 +4,8 @@ import axios from "axios";
 
 function App() {
   const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState('';)
+
 
   // Call API and receive data:
   useEffect(() => {
@@ -14,11 +16,22 @@ function App() {
       // Once promise is complete set state to value of API Call
       .then((res) => {
         setCoins(res.data);
-        console.log(res.data);
-      });
-  });
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-  return <div className="App">API</div>;
+  const handleChange = e => {
+    setSearch(e.target.value)
+  }
+
+  return (
+    <div className="coin-app">
+      <div className="coin-search">
+        <h1 className="coin-text">Search for a currency</h1>
+        <form type="text" placeholder="search" className="coin-input" onChange={handleChange}></form>
+      </div>
+    </div>
+  );
 }
 
 export default App;
