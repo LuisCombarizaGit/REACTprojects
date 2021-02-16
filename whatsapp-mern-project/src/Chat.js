@@ -2,6 +2,8 @@ import React from "react";
 import { AttachFile, MoreVert, SearchOutlined } from "@material-ui/icons";
 import { Avatar, IconButton } from "@material-ui/core";
 import "./Chat.css";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import MicIcon from "@material-ui/icons/MicIcon";
 
 function Chat() {
   return (
@@ -27,11 +29,32 @@ function Chat() {
       </div>
 
       <div className="chat_body">
-        <p>
+        <p className="chat_message">
           <span className="chat_name">Sonny</span>
           This is a message
           <span className="chat_timesstamp">{new Date().toUTCString()}</span>
         </p>
+
+        <p className="chat_message chat_receiver">
+          <span className="chat_name">Sonny</span>
+          This is a message
+          <span className="chat_timesstamp">{new Date().toUTCString()}</span>
+        </p>
+
+        <p className="chat_message">
+          <span className="chat_name">Sonny</span>
+          This is a message
+          <span className="chat_timesstamp">{new Date().toUTCString()}</span>
+        </p>
+      </div>
+
+      <div className="chat_footer">
+        <InsertEmoticonIcon />
+        <form>
+          <input placeholder="Type a message" type="text" />
+          <button type="submit">Send a message</button>
+        </form>
+        <MicIcon />
       </div>
     </div>
   );
