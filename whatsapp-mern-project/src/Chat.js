@@ -3,7 +3,7 @@ import { AttachFile, MoreVert, SearchOutlined } from "@material-ui/icons";
 import { Avatar, IconButton } from "@material-ui/core";
 import "./Chat.css";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-import MicIcon from "@material-ui/icons/MicIcon";
+import MicIcon from "@material-ui/icons/Mic";
 
 function Chat() {
   return (

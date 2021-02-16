@@ -77,6 +77,15 @@
 .chat_footer > form > input {
   flex: 1;
   border-radius: 30px;
-  padding: none;
+  padding: 10px;
   border: none;
+}
+
+.chat_footer > form > button {
+  display: none;
+}
+
+.chat_footer > .MuiSvgIcon-root {
+  padding: 10px;
+  color: gray;
 }
