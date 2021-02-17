@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import Messages from "./dbMessages.js";
 import Pusher from "pusher";
+import cors from "cors";
 
 // app config
 const app = express();
@@ -26,11 +27,22 @@ db.once("open", () => {
 
   changeStream.on("change", (change) => {
     console.log("A Change occured:", change);
+
+    if (change.operationType === "insert") {
+      const messageDetails = change.fullDocument;
+      pusher.trigger("messages", "inserted", {
+        name: messageDetails.name,
+        message: messageDetails.message,
+      });
+    } else {
+      console.log("Error triggering Pusher");
+    }
   });
 });
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 // DB config
 const connection_url =
