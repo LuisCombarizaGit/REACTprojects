@@ -8,7 +8,7 @@ function Table({ countries }) {
         <tr>
           <td>{country.country}</td>
           <td>
-            <strong>{country.cases}</strong>
+            <strong>{country.cases}.format("0,0")</strong>
           </td>
         </tr>
       ))}
